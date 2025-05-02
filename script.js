@@ -1,22 +1,18 @@
-const result = document.getElementById('result');
+let display = document.getElementById('display');
 
-function appendValue(value) {
-  result.value += value;
+function appendToDisplay(value) {
+    display.value += value;
 }
 
-function clearResult() {
-  result.value = '';
-}
-
-function deleteLast() {
-  result.value = result.value.slice(0, -1);
+function clearDisplay() {
+    display.value = '';
 }
 
 function calculate() {
-  try {
-    result.value = eval(result.value);
-  } catch (error) {
-    result.value   
- = 'Error';
-  }
+    try {
+        display.value = eval(display.value);
+    } catch (error) {
+        display.value = 'Error';
+        setTimeout(clearDisplay, 1000);
+    }
 }
